@@ -84,10 +84,10 @@ def get_header():
 
 # code of cateogory to crawl
 catList = [
-	{	# mobile phone
-		'category': 'mobile',
-		'code': (9987, 653, 655) #6881: contract phone
-	},
+	# {	# mobile phone
+	# 	'category': 'mobile',
+	# 	'code': (9987, 653, 655) #6881: contract phone
+	# },
 	{	# air conditioner
 		'category': 'air',
 		'code': (737, 794, 870)
@@ -104,10 +104,19 @@ catList = [
 		'category': 'wash',
 		'code': (737, 794, 880)
 	},
-	{   # 
+	{   # hood
 		'category': 'hood',
 		'code': (737, 13297, 1300)
+	},
+	{	# gascooker
+		'category': 'gas',
+		'code': (737, 13297, 13298)
+	},
+	{	# dishwasher
+		'category': 'dish',
+		'code': (737, 13297, 13117)
 	}
+
 ]
 
 # code to category to crawl for search
@@ -119,6 +128,11 @@ searchList = [
 	{	# home appliance
 		'category': 'homeappliance',
 		'code': 794
+	},
+	{   # kitchen large
+		'category': 'largekitchen',
+		'code': 13297
+
 	}
 ]
 
@@ -198,7 +212,7 @@ parserList = [
 ]
 
 # Thread number
-THREAD_NUM = 8
+THREAD_NUM = 4
 
 # Proxies URL
 PROXIESURL = 'http://127.0.0.1:8000/?types=0&count=10&country=%E5%9B%BD%E5%86%85' # Local time

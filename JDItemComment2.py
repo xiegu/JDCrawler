@@ -33,7 +33,8 @@ if __name__ == '__main__':
 	p2.start()
 	p1.join()
 	#p2.join()
-	time.sleep(100)
+	w = q2.qsize()/300 + 10
+	time.sleep(w)
 	p2.terminate()
 	b = time.ctime()
 	print 'All done at:', b

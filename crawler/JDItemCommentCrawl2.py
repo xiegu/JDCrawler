@@ -37,7 +37,7 @@ class JDItemCommentCrawler(object):
 		print 'Start crawling item comment in JD' + ' ' + '>'*20
 		query = CatItemSqlHelper().select()
 		itemIdList = [i[0] for i in query]
-		itemIdList = random.sample(itemIdList, len(itemIdList))
+		#itemIdList = random.sample(itemIdList, len(itemIdList))
 		print 'totally %d items' %len(itemIdList)
 		self.commentThread(itemIdList)
 
@@ -67,7 +67,7 @@ class JDItemCommentCrawler(object):
 		proxies = get_proxies(PROXIESURL, free = True)
 		for p in range(pageNum):
 			while True:
-				if p < 50:
+				if p < 70:
 					content = HtmlDownloader.download(get_itemComment_url(itemId, p))
 				else:
 					content = HtmlDownloader.download_proxy(get_itemComment_url(itemId, p), proxies)
@@ -85,5 +85,5 @@ class JDItemCommentCrawler(object):
 					self.queue2.put(comment[i])
 				itemList.extend(comment)
 		print '%s done' %itemId
-		#print '%d' %self.queue2.qsize()
+		print '%d' %self.queue2.qsize()
 		print 'Comment length %d' %len(itemList)
